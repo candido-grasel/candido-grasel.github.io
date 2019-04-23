@@ -2,82 +2,34 @@
 
 <html>
 
- 
-
 <head>
 
   <meta class="UTF-8" http-equiv="X-UA-Compatible" content="IE=11">
 
-  <button class="pay-button-getnet">Realizar pagamento</button>
-
-  <script>
-
-  var data = "scope=oob&grant_type=client_credentials",
-
-  bodyResponse,
-
-  xhr = new XMLHttpRequest();
-
- 
-
-  xhr.withCredentials = true;
-
- 
-
-  xhr.addEventListener("readystatechange", function () {
-
-  if (this.readyState === 4) {
-
-  console.log(this.responseText);
-
-  bodyResponse = JSON.parse(this.responseText);
-
-  token = bodyResponse.token_type + ' ' + bodyResponse.access_token;
-
-}
-
-}, false);
-
- 
-
-  xhr.open("POST", "https://checkout-homologacao.getnet.com.br/api/auth/oauth/v2/token");
-
-  xhr.setRequestHeader("Authorization", "Basic NDViZDg4MmMtODMyMS00MmUxLWFjNTMtZmViOGFhZjA3MWVhOmZmNDkxYmUwLWZlZTctNDg5MC04YzZhLTdkZjg1YWMxYTQxZQ==");
-
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-  xhr.setRequestHeader("Cache-Control", "no-cache");
-
- xhr.send(data);
-
-  </script>
-
-  <script async src="https://checkout-homologacao.getnet.com.br/loader.js" data - getnet - sellerid="d3e530cb-6c4f-465d-87a2-290db7e701a5"
-
-  data - getnet - token=token data - getnet - amount="1.00" data - getnet - customerid="12345" data - getnet - orderid="12345"
-
-  data - getnet - button - class="pay-button-getnet" data - getnet - installments="4" data - getnet - customer - first
-
-- name="João" data - getnet - customer - last - name="da Silva" data - getnet - customer - document - type="CPF" data
-
-- getnet - customer - document - number="22233366638" data - getnet - customer - email="teste@getnet.com.br" data - getnet
-
-- customer - phone - number="1134562356" data - getnet - customer - address - street="Rua Alexandre Dumas" data - getnet
-
-- customer - address - street - number="1711" data - getnet - customer - address - complementary="" data - getnet - customer
-
-- address - neighborhood="Chacara Santo Antonio" data - getnet - customer - address - city="São Paulo" data - getnet
-
-- customer - address - state="SP" data - getnet - customer - address - zipcode="04717004" data - getnet - customer -
-
-  country="Brasil" data - getnet - shipping - address='[{ "first_name": "João", "name": "João Borgas", "email": "joaoborgas@gmail.com", "phone_number": "", "shipping_amount": 10, "address": { "street": "Rua dos Pagamentos", "complement": "", "number": "171", "district": "Centro", "city": "São Paulo", "state": "SP", "country": "Brasil", "postal_code": "12345678"}}]'
-
-  data - getnet - items='[{"name": "","description": "", "value": 0, "quantity": 0,"sku": ""}]' data - getnet - url - callback="https://ecommerce.com.br/sucesso"
-
-  data - getnet - pre - authorization - credit=""></script>
-
 </head>
 
- 
+<button class="pay-button-getnet">Realizar pagamento</button>
+
+<script async src="https://checkout.getnet.com.br/loader.js" data-getnet-sellerid="a904fb58-11b5-4642-8768-bcc122d1769f"
+
+  data-getnet-token="Bearer 9b051c36-7913-4762-98aa-7bc74d206544" data-getnet-amount="10.00" data-getnet-customerid="12345"
+
+  data-getnet-orderid="12345" data-getnet-button-class="pay-button-getnet" data-getnet-installments="4" data-getnet-customer-first-name="João"
+
+  data-getnet-customer-last-name="da Silva" data-getnet-customer-document-type="CPF" data-getnet-customer-document-number="22233366638"
+
+  data-getnet-customer-email="teste@getnet.com.br" data-getnet-customer-phone-number="1134562356" data-getnet-customer-address-street="Rua Alexandre Dumas"
+
+  data-getnet-customer-address-street-number="1711" data-getnet-customer-address-complementary="" data-getnet-customer-address-neighborhood="Chacara Santo Antonio"
+
+  data-getnet-customer-address-city="São Paulo" data-getnet-customer-address-state="SP" data-getnet-customer-address-zipcode="04717004"
+
+  data-getnet-customer-country="Brasil" data-getnet-shipping-address='[{ "first_name": "João", "name": "João Borgas", "email": "joaoborgas@gmail.com", "phone_number": "", "shipping_amount": 10, "address": { "street": "Rua dos Pagamentos", "complement": "", "number": "171", "district": "Centro", "city": "São Paulo", "state": "SP", "country": "Brasil", "postal_code": "12345678"}}]'
+
+  data-getnet-items='[{"name": "","description": "", "value": 0, "quantity": 0,"sku": ""}]' data-getnet-url-callback="https://ecommerce.com.br/sucesso"
+
+  data-getnet-pre-authorization-credit="">
+
+  </script>
 
 </html>
