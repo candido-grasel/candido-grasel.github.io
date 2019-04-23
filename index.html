@@ -12,7 +12,7 @@
 
   <script>
 
- var data = "scope=oob&grant_type=client_credentials";
+  var data = "scope=oob&grant_type=client_credentials";
 
   var xhr = new XMLHttpRequest();
 
@@ -20,7 +20,7 @@
 
  
 
-  xhr.open("POST", "https://api-homologacao.getnet.com.br/auth/oauth/v2/token");
+  xhr.open("POST", "https://checkout-homologacao.getnet.com.br/auth/oauth/v2/token");
 
   xhr.setRequestHeader("Authorization", "Basic Basic NDViZDg4MmMtODMyMS00MmUxLWFjNTMtZmViOGFhZjA3MWVhOmZmNDkxYmUwLWZlZTctNDg5MC04YzZhLTdkZjg1YWMxYTQxZQ==");
 
@@ -28,15 +28,7 @@
 
   xhr.setRequestHeader("Cache-Control", "no-cache");
 
-  xhr.setRequestHeader("Host", "api-homologacao.getnet.com.br");
-
-  xhr.setRequestHeader("accept-encoding", "gzip, deflate");
-
-  xhr.setRequestHeader("content-length", "39");
-
-  xhr.setRequestHeader("Connection", "keep-alive");
-
-  xhr.send(data);
+ xhr.send(data);
 
  
 
