@@ -12,27 +12,15 @@
 
   <script>
 
-  var data = "scope=oob&grant_type=client_credentials";
+  var data = "scope=oob&grant_type=client_credentials",
 
-  bodyResponse;
+  bodyResponse,
 
   xhr = new XMLHttpRequest();
 
  
 
   xhr.withCredentials = true;
-
- 
-
- xhr.open("POST", "https://checkout-homologacao.getnet.com.br/auth/oauth/v2/token");
-
-  xhr.setRequestHeader("Authorization", "Basic Basic NDViZDg4MmMtODMyMS00MmUxLWFjNTMtZmViOGFhZjA3MWVhOmZmNDkxYmUwLWZlZTctNDg5MC04YzZhLTdkZjg1YWMxYTQxZQ==");
-
- xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-  xhr.setRequestHeader("Cache-Control", "no-cache");
-
-  xhr.send(data);
 
  
 
@@ -44,13 +32,23 @@
 
   bodyResponse = JSON.parse(this.responseText);
 
-}
+  var token = bodyResponse.token_type + ' ' + bodyResponse.access_token
+
+ }
 
 }, false);
 
  
 
-  var token = bodyResponse.token_type + ' ' + bodyResponse.access_token
+  xhr.open("POST", "https://checkout-homologacao.getnet.com.br/api/auth/oauth/v2/token");
+
+  xhr.setRequestHeader("Authorization", "Basic NDViZDg4MmMtODMyMS00MmUxLWFjNTMtZmViOGFhZjA3MWVhOmZmNDkxYmUwLWZlZTctNDg5MC04YzZhLTdkZjg1YWMxYTQxZQ==");
+
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  xhr.setRequestHeader("Cache-Control", "no-cache");
+
+ xhr.send(data);
 
  
 
@@ -66,7 +64,7 @@
 
 <script async src="https://checkout-homologacao.getnet.com.br/loader.js" data-getnet-sellerid="d3e530cb-6c4f-465d-87a2-290db7e701a5"
 
-  data-getnet-token= token data-getnet-amount="1.00" data-getnet-customerid="12345" data-getnet-orderid="12345" data-getnet-button-class="pay-button-getnet"
+  data-getnet-token=t oken data-getnet-amount="1.00" data-getnet-customerid="12345" data-getnet-orderid="12345" data-getnet-button-class="pay-button-getnet"
 
   data-getnet-installments="4" data-getnet-customer-first-name="João" data-getnet-customer-last-name="da Silva" data-getnet-customer-document-type="CPF"
 
