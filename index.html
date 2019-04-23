@@ -14,21 +14,25 @@
 
   var data = "scope=oob&grant_type=client_credentials";
 
-  var xhr = new XMLHttpRequest();
+  bodyResponse;
+
+  xhr = new XMLHttpRequest();
+
+ 
 
   xhr.withCredentials = true;
 
  
 
-  xhr.open("POST", "https://checkout-homologacao.getnet.com.br/auth/oauth/v2/token");
+ xhr.open("POST", "https://checkout-homologacao.getnet.com.br/auth/oauth/v2/token");
 
   xhr.setRequestHeader("Authorization", "Basic Basic NDViZDg4MmMtODMyMS00MmUxLWFjNTMtZmViOGFhZjA3MWVhOmZmNDkxYmUwLWZlZTctNDg5MC04YzZhLTdkZjg1YWMxYTQxZQ==");
 
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+ xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
   xhr.setRequestHeader("Cache-Control", "no-cache");
 
- xhr.send(data);
+  xhr.send(data);
 
  
 
