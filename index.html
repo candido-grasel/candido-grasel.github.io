@@ -121,3 +121,103 @@
   }
 
 });
+
+base64 = btoa("5c93fd70-3ed3-4efc-a9a7-72bb8c0e5a5d:c5f3cbb5-c0f6-40bd-9bf8-2bbe4b62ff14");
+
+ 
+
+  xhr.open("POST", "https://checkout.getnet.com.br/api/auth/oauth/v2/token");
+
+  xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+
+  xhr.setRequestHeader("authorization", "Basic " + base64);
+
+  xhr.send(data);
+
+ 
+
+  xhr.addEventListener('load', ev => {
+
+  // Funções compatíveis com IE e outros navegadores
+
+  var eventMethod = (window.addEventListener ? 'addEventListener' : 'attachEvent');
+
+  var eventer = window[eventMethod];
+
+  var messageEvent = (eventMethod === 'attachEvent') ? 'onmessage' : 'message';
+
+ 
+
+  // Ouvindo o evento do loader
+
+  eventer(messageEvent, function iframeMessage(e) {
+
+  var data = e.data || '';
+
+ 
+
+  switch (data.status || data) {
+
+  // Corfirmação positiva do checkout.
+
+  case 'success':
+
+  console.log('Transação realizada.');
+
+ break;
+
+ 
+
+  // Notificação de que o IFrame de checkout foi fechado a aprovação.
+
+  case 'close':
+
+  console.log('Checkout fechado.');
+
+  break;
+
+ 
+
+  // Notificação que um boleto foi registrado com sucesso
+
+ case 'pending':
+
+  console.log('Boleto registrado e pendente de pagamento');
+
+  console.log(data.detail);
+
+  break;
+
+ 
+
+ // Notificação que houve um erro na tentativa de pagamento
+
+ case 'error':
+
+  console.warn(data.detail.message);
+
+  break;
+
+ 
+
+  // Ignora qualquer outra mensagem
+
+ default:
+
+ break;
+
+}
+
+}, false);
+
+});
+
+</script>
+
+ 
+
+</body>
+
+ 
+
+</html>
