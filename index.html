@@ -1,35 +1,123 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 
 <html>
 
+ 
+
 <head>
 
-  <meta class="UTF-8" http-equiv="X-UA-Compatible" content="IE=11">
+  <meta charset="UTF-8">
+
+  <meta http-equiv="Cache-Control" content="no-cache" />
+
+  <meta http-equiv="Pragma" content="no-cache" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=11">
+
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>E-commerce Getnet</title>
 
 </head>
 
-<button class="pay-button-getnet">Realizar pagamento</button>
+ 
 
-<script async src="https://checkout.getnet.com.br/loader.js" data-getnet-sellerid="a904fb58-11b5-4642-8768-bcc122d1769f"
+<button class="pagamento">Realizar Pagamento</button>
 
-  data-getnet-token="Bearer 9b051c36-7913-4762-98aa-7bc74d206544" data-getnet-amount="10.00" data-getnet-customerid="12345"
+ 
 
-  data-getnet-orderid="12345" data-getnet-button-class="pay-button-getnet" data-getnet-installments="4" data-getnet-customer-first-name="João"
+<script>
 
-  data-getnet-customer-last-name="da Silva" data-getnet-customer-document-type="CPF" data-getnet-customer-document-number="22233366638"
+  var tagbody = document.body,
 
-  data-getnet-customer-email="teste@getnet.com.br" data-getnet-customer-phone-number="1134562356" data-getnet-customer-address-street="Rua Alexandre Dumas"
+  tagscript = document.createElement('script');
 
-  data-getnet-customer-address-street-number="1711" data-getnet-customer-address-complementary="" data-getnet-customer-address-neighborhood="Chacara Santo Antonio"
+ 
 
-  data-getnet-customer-address-city="São Paulo" data-getnet-customer-address-state="SP" data-getnet-customer-address-zipcode="04717004"
+  function insertScript(token) {
 
-  data-getnet-customer-country="Brasil" data-getnet-shipping-address='[{ "first_name": "João", "name": "João Borgas", "email": "joaoborgas@gmail.com", "phone_number": "", "shipping_amount": 10, "address": { "street": "Rua dos Pagamentos", "complement": "", "number": "171", "district": "Centro", "city": "São Paulo", "state": "SP", "country": "Brasil", "postal_code": "12345678"}}]'
+  tagbody.appendChild(tagscript);
 
-  data-getnet-items='[{"name": "","description": "", "value": 0, "quantity": 0,"sku": ""}]' data-getnet-url-callback="https://ecommerce.com.br/sucesso"
+ 
 
-  data-getnet-pre-authorization-credit="">
+  tagscript.setAttribute('data-getnet-sellerid', 'c459f6ee-fedb-4289-b023-af5e2b3d54df');
 
-  </script>
+  tagscript.setAttribute('data-getnet-token', token);
 
-</html>
+  tagscript.setAttribute('data-getnet-amount', '1.00');
+
+  tagscript.setAttribute('data-getnet-customerid', '875968');
+
+  tagscript.setAttribute('data-getnet-orderid', 'ecc4c42e-164c-41a3-a304-48364c37193b');
+
+  tagscript.setAttribute('data-getnet-button-class', 'pagamento');
+
+  tagscript.setAttribute('data-getnet-installments', '1');
+
+  tagscript.setAttribute('data-getnet-customer-first-name', 'Eriberto');
+
+  tagscript.setAttribute('data-getnet-customer-last-name', ' da Silva Araujo');
+
+  tagscript.setAttribute('data-getnet-customer-document-type', 'CPF');
+
+  tagscript.setAttribute('data-getnet-customer-document-number', '03453123840');
+
+  tagscript.setAttribute('data-getnet-customer-email', 'rvaraujo.sp@gmail.com');
+
+  tagscript.setAttribute('data-getnet-customer-phone-number', '8532635052');
+
+  tagscript.setAttribute('data-getnet-customer-address-street', 'Avenida Cesar Cals');
+
+  tagscript.setAttribute('data-getnet-customer-address-street-number', '350');
+
+  tagscript.setAttribute('data-getnet-customer-address-complementary', 'AP 304');
+
+  tagscript.setAttribute('data-getnet-customer-address-neighborhood', 'Praia do Futuro');
+
+  tagscript.setAttribute('data-getnet-customer-address-city', 'Fortaleza');
+
+  tagscript.setAttribute('data-getnet-customer-address-state', 'Ceará');
+
+ tagscript.setAttribute('data-getnet-customer-address-zipcode', '60182005');
+
+  tagscript.setAttribute('data-getnet-customer-country', 'Brasil');
+
+  tagscript.setAttribute('data-getnet-shipping-address', '[{"first_name":"Eriberto","name":"Eriberto da Silva Araujo","email":"rvaraujo.sp@gmail.com","phone_number":"8532635052","shipping_amount":0,"address":{"street":"Avenida Cesar Cals","complement":"AP 304","number":"350","district":"Praia do Futuro","city":"Fortaleza","state":"Ceará","country":"Brasil","postal_code":"60182005"}}]');
+
+  tagscript.setAttribute('data-getnet-items', '[{"name": "","description": "", "value": 0, "quantity": 0,"sku": ""}]');
+
+  tagscript.setAttribute('data-getnet-url-callback', '');
+
+ 
+
+  tagscript.src = "https://checkout.getnet.com.br/loader.js";
+
+}
+
+ 
+
+  var data = "scope=oob&grant_type=client_credentials",
+
+  bodyresponse,
+
+  base64,
+
+  xhr = new XMLHttpRequest();
+
+ 
+
+  xhr.addEventListener("readystatechange", function () {
+
+  if (this.readyState === 4) {
+
+  bodyresponse = JSON.parse(this.responseText);
+
+  token = bodyresponse.token_type + ' ' + bodyresponse.access_token;
+
+  insertScript(token);
+
+  console.log(bodyresponse);
+
+  }
+
+});
