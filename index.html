@@ -1,8 +1,6 @@
-<!DOCTYPE>
+<!DOCTYPE <html>
 
-<html>
 
- 
 
 <head>
 
@@ -14,117 +12,118 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=11">
 
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport"
+    content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <title>E-commerce Getnet</title>
 
 </head>
 
- 
+
 
 <button class="pagamento">Realizar Pagamento</button>
 
- 
+
 
 <script>
 
   var tagbody = document.body,
 
-  tagscript = document.createElement('script');
+    tagscript = document.createElement('script');
 
- 
+
 
   function insertScript(token) {
 
-  tagbody.appendChild(tagscript);
+    tagbody.appendChild(tagscript);
 
- 
 
-  tagscript.setAttribute('data-getnet-sellerid', 'c459f6ee-fedb-4289-b023-af5e2b3d54df');
 
-  tagscript.setAttribute('data-getnet-token', token);
+    tagscript.setAttribute('data-getnet-sellerid', 'c459f6ee-fedb-4289-b023-af5e2b3d54df');
 
-  tagscript.setAttribute('data-getnet-amount', '1.00');
+    tagscript.setAttribute('data-getnet-token', token);
 
-  tagscript.setAttribute('data-getnet-customerid', '875968');
+    tagscript.setAttribute('data-getnet-amount', '1.00');
 
-  tagscript.setAttribute('data-getnet-orderid', 'ecc4c42e-164c-41a3-a304-48364c37193b');
+    tagscript.setAttribute('data-getnet-customerid', '875968');
 
-  tagscript.setAttribute('data-getnet-button-class', 'pagamento');
+    tagscript.setAttribute('data-getnet-orderid', 'ecc4c42e-164c-41a3-a304-48364c37193b');
 
-  tagscript.setAttribute('data-getnet-installments', '1');
+    tagscript.setAttribute('data-getnet-button-class', 'pagamento');
 
-  tagscript.setAttribute('data-getnet-customer-first-name', 'Eriberto');
+    tagscript.setAttribute('data-getnet-installments', '1');
 
-  tagscript.setAttribute('data-getnet-customer-last-name', ' da Silva Araujo');
+    tagscript.setAttribute('data-getnet-customer-first-name', 'Eriberto');
 
-  tagscript.setAttribute('data-getnet-customer-document-type', 'CPF');
+    tagscript.setAttribute('data-getnet-customer-last-name', ' da Silva Araujo');
 
-  tagscript.setAttribute('data-getnet-customer-document-number', '03453123840');
+    tagscript.setAttribute('data-getnet-customer-document-type', 'CPF');
 
-  tagscript.setAttribute('data-getnet-customer-email', 'rvaraujo.sp@gmail.com');
+    tagscript.setAttribute('data-getnet-customer-document-number', '03453123840');
 
-  tagscript.setAttribute('data-getnet-customer-phone-number', '8532635052');
+    tagscript.setAttribute('data-getnet-customer-email', 'rvaraujo.sp@gmail.com');
 
-  tagscript.setAttribute('data-getnet-customer-address-street', 'Avenida Cesar Cals');
+    tagscript.setAttribute('data-getnet-customer-phone-number', '8532635052');
 
-  tagscript.setAttribute('data-getnet-customer-address-street-number', '350');
+    tagscript.setAttribute('data-getnet-customer-address-street', 'Avenida Cesar Cals');
 
-  tagscript.setAttribute('data-getnet-customer-address-complementary', 'AP 304');
+    tagscript.setAttribute('data-getnet-customer-address-street-number', '350');
 
-  tagscript.setAttribute('data-getnet-customer-address-neighborhood', 'Praia do Futuro');
+    tagscript.setAttribute('data-getnet-customer-address-complementary', 'AP 304');
 
-  tagscript.setAttribute('data-getnet-customer-address-city', 'Fortaleza');
+    tagscript.setAttribute('data-getnet-customer-address-neighborhood', 'Praia do Futuro');
 
-  tagscript.setAttribute('data-getnet-customer-address-state', 'Ceará');
+    tagscript.setAttribute('data-getnet-customer-address-city', 'Fortaleza');
 
- tagscript.setAttribute('data-getnet-customer-address-zipcode', '60182005');
+    tagscript.setAttribute('data-getnet-customer-address-state', 'Ceará');
 
-  tagscript.setAttribute('data-getnet-customer-country', 'Brasil');
+    tagscript.setAttribute('data-getnet-customer-address-zipcode', '60182005');
 
-  tagscript.setAttribute('data-getnet-shipping-address', '[{"first_name":"Eriberto","name":"Eriberto da Silva Araujo","email":"rvaraujo.sp@gmail.com","phone_number":"8532635052","shipping_amount":0,"address":{"street":"Avenida Cesar Cals","complement":"AP 304","number":"350","district":"Praia do Futuro","city":"Fortaleza","state":"Ceará","country":"Brasil","postal_code":"60182005"}}]');
+    tagscript.setAttribute('data-getnet-customer-country', 'Brasil');
 
-  tagscript.setAttribute('data-getnet-items', '[{"name": "","description": "", "value": 0, "quantity": 0,"sku": ""}]');
+    tagscript.setAttribute('data-getnet-shipping-address', '[{"first_name":"Eriberto","name":"Eriberto da Silva Araujo","email":"rvaraujo.sp@gmail.com","phone_number":"8532635052","shipping_amount":0,"address":{"street":"Avenida Cesar Cals","complement":"AP 304","number":"350","district":"Praia do Futuro","city":"Fortaleza","state":"Ceará","country":"Brasil","postal_code":"60182005"}}]');
 
-  tagscript.setAttribute('data-getnet-url-callback', '');
+    tagscript.setAttribute('data-getnet-items', '[{"name": "","description": "", "value": 0, "quantity": 0,"sku": ""}]');
 
- 
+    tagscript.setAttribute('data-getnet-url-callback', '');
 
-  tagscript.src = "https://checkout.getnet.com.br/loader.js";
 
-}
 
- 
-
-  var data = "scope=oob&grant_type=client_credentials",
-
-  bodyresponse,
-
-  base64,
-
-  xhr = new XMLHttpRequest();
-
- 
-
-  xhr.addEventListener("readystatechange", function () {
-
-  if (this.readyState === 4) {
-
-  bodyresponse = JSON.parse(this.responseText);
-
-  token = bodyresponse.token_type + ' ' + bodyresponse.access_token;
-
-  insertScript(token);
-
-  console.log(bodyresponse);
+    tagscript.src = "https://checkout.getnet.com.br/loader.js";
 
   }
 
-});
 
-base64 = btoa("5c93fd70-3ed3-4efc-a9a7-72bb8c0e5a5d:c5f3cbb5-c0f6-40bd-9bf8-2bbe4b62ff14");
 
- 
+  var data = "scope=oob&grant_type=client_credentials",
+
+    bodyresponse,
+
+    base64,
+
+    xhr = new XMLHttpRequest();
+
+
+
+  xhr.addEventListener("readystatechange", function () {
+
+    if (this.readyState === 4) {
+
+      bodyresponse = JSON.parse(this.responseText);
+
+      token = bodyresponse.token_type + ' ' + bodyresponse.access_token;
+
+      insertScript(token);
+
+      console.log(bodyresponse);
+
+    }
+
+  });
+
+  base64 = btoa("5c93fd70-3ed3-4efc-a9a7-72bb8c0e5a5d:c5f3cbb5-c0f6-40bd-9bf8-2bbe4b62ff14");
+
+
 
   xhr.open("POST", "https://checkout.getnet.com.br/api/auth/oauth/v2/token");
 
@@ -134,90 +133,90 @@ base64 = btoa("5c93fd70-3ed3-4efc-a9a7-72bb8c0e5a5d:c5f3cbb5-c0f6-40bd-9bf8-2bbe
 
   xhr.send(data);
 
- 
+
 
   xhr.addEventListener('load', ev => {
 
-  // Funções compatíveis com IE e outros navegadores
+    // Funções compatíveis com IE e outros navegadores
 
-  var eventMethod = (window.addEventListener ? 'addEventListener' : 'attachEvent');
+    var eventMethod = (window.addEventListener ? 'addEventListener' : 'attachEvent');
 
-  var eventer = window[eventMethod];
+    var eventer = window[eventMethod];
 
-  var messageEvent = (eventMethod === 'attachEvent') ? 'onmessage' : 'message';
+    var messageEvent = (eventMethod === 'attachEvent') ? 'onmessage' : 'message';
 
- 
 
-  // Ouvindo o evento do loader
 
-  eventer(messageEvent, function iframeMessage(e) {
+    // Ouvindo o evento do loader
 
-  var data = e.data || '';
+    eventer(messageEvent, function iframeMessage(e) {
 
- 
+      var data = e.data || '';
 
-  switch (data.status || data) {
 
-  // Corfirmação positiva do checkout.
 
-  case 'success':
+      switch (data.status || data) {
 
-  console.log('Transação realizada.');
+        // Corfirmação positiva do checkout.
 
- break;
+        case 'success':
 
- 
+          console.log('Transação realizada.');
 
-  // Notificação de que o IFrame de checkout foi fechado a aprovação.
+          break;
 
-  case 'close':
 
-  console.log('Checkout fechado.');
 
-  break;
+        // Notificação de que o IFrame de checkout foi fechado a aprovação.
 
- 
+        case 'close':
 
-  // Notificação que um boleto foi registrado com sucesso
+          console.log('Checkout fechado.');
 
- case 'pending':
+          break;
 
-  console.log('Boleto registrado e pendente de pagamento');
 
-  console.log(data.detail);
 
-  break;
+        // Notificação que um boleto foi registrado com sucesso
 
- 
+        case 'pending':
 
- // Notificação que houve um erro na tentativa de pagamento
+          console.log('Boleto registrado e pendente de pagamento');
 
- case 'error':
+          console.log(data.detail);
 
-  console.warn(data.detail.message);
+          break;
 
-  break;
 
- 
 
-  // Ignora qualquer outra mensagem
+        // Notificação que houve um erro na tentativa de pagamento
 
- default:
+        case 'error':
 
- break;
+          console.warn(data.detail.message);
 
-}
+          break;
 
-}, false);
 
-});
+
+        // Ignora qualquer outra mensagem
+
+        default:
+
+          break;
+
+      }
+
+    }, false);
+
+  });
 
 </script>
 
- 
+
 
 </body>
 
- 
+
 
 </html>
